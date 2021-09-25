@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Actividad_9.MainPage" BackgroundColor="LightGray"  >
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Entry Grid.Row="0" x:Name="txtNombre" Grid.ColumnSpan="3" Placeholder="Nombre"/>
+        <Entry Grid.Row="1" x:Name="txtCorreo" Grid.ColumnSpan="3" Placeholder="Correo"/>
+        <Entry Grid.Row="2" x:Name="txtTelefono" Grid.ColumnSpan="3" Placeholder="Telefono"/>
+        <Button Grid.Column="0" Grid.Row="3" x:Name="btnAgregar" Clicked="btnAgregar_Clicked" Text="Agregar" BorderColor="Black" BorderWidth="1" BackgroundColor="#97FC8A" CornerRadius="20"/>
+        <Button Grid.Column="1" Grid.Row="3" x:Name="btnModificar" Clicked="btnModificar_Clicked" Text="Modificar" BorderColor="Black" BorderWidth="1" BackgroundColor="#F0FD7A" CornerRadius="20"/>
+        <Button Grid.Column="2" Grid.Row="3" x:Name="btnEliminar" Clicked="btnEliminar_Clicked" Text="Eliminar" BorderColor="Black" BorderWidth="1" BackgroundColor="#FD7A7A" CornerRadius="20"/>
+        <ListView x:Name="lstPersonas" Grid.Row="4" Grid.ColumnSpan="3" IsPullToRefreshEnabled="true" HasUnevenRows="True" ItemTapped="lstPersonas_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Nombre}" TextColor="Blue" />
+                                <Label Text="{Binding Correo}" TextColor="Black" />
+                                <Label Text="{Binding Telefono}" TextColor="Black" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
